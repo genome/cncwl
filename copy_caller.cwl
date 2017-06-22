@@ -14,7 +14,7 @@ inputs:
         inputBinding:
           prefix: "--homdel-file"
 outputs:
-    output:
+    output_file:
         type: File
         outputBinding:
           glob: "varscan.output.copynumber.called"

@@ -1,6 +1,3 @@
-bsubStd -J vs3cn "genome-perl -I ~cmiller/git/genome/lib/perl `which gmt` varscan copy-number-\
-segments --regions-file varscan.output.copynumber.called --output varscan.output.copynumber.ca\
-lled.cbs"
 cwlVersion: v1.0
 class: CommandLineTool
 label: "Copy number segmentation for exome varscan"
@@ -26,12 +23,12 @@ outputs:
     infile:
         type: File[]
         outputBinding:
-          glob: *.infile
+          glob: "*.infile"
     p_value:
         type: File[]
         outputBinding:
-          glob: *infile.segments.p-value
+          glob: "*.infile.segments.p-value"
     sd:
         type: File[]
         outputBinding:
-          glob: *infile.segments.cd
+          glob: "*.infile.segments.cd"
