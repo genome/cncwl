@@ -1,0 +1,6 @@
+normal_bam: 
+    class: File
+    path: /gscmnt/gc3018/info/medseq/tmp/mneveau/test.bam
+tumor_bam: 
+    class: File
+    path: /gscmnt/gc3018/info/medseq/tmp/mneveau/test.bam

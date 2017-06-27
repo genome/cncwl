@@ -1,0 +1,7 @@
+copy_num_files:
+    class: File
+    path:
+        - /gscmnt/gc3018/info/medseq/tmp/mneveau/1.copynumber
+        - /gscmnt/gc3018/info/medseq/tmp/mneveau/2.copynumber
+        - /gscmnt/gc3018/info/medseq/tmp/mneveau/3.copynumber
+output: varscan.output.copynumber
