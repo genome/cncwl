@@ -21,10 +21,6 @@ inputs:
         inputBinding:
           prefix: --R
         secondaryFiles: [.fai]
-    output:
-        type: string
-        inputBinding: 
-          prefix: -O
     chromosome:
         type: string?
         inputBinding: 
@@ -69,7 +65,6 @@ steps:
             normal_bam: normal_bam
             tumor_bam: tumor_bam
             reference: reference
-            output: output
             norm_tum_ratio: get_norm_tum_ratio/norm_tum_ratio
             varscan_params: varscan_params
             input_file: split/cn_chromo_files
@@ -79,6 +74,5 @@ steps:
         run: combine.cwl
         in:
             copy_num_files: copy_num/copy_num_files
-            output: output
         out:
             [combined_out]  

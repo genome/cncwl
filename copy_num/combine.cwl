@@ -7,10 +7,6 @@ inputs:
         type: File[]
         inputBinding:
             position: 1
-    output:
-        type: string
-        inputBinding:
-            position: 2
 outputs:
     combined_out:
         type: File

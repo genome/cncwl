@@ -27,10 +27,6 @@ inputs:
         type: string
         inputBinding:
             position: 6
-    output:
-        type: string
-        inputBinding:
-            position: 7
 outputs:
     cn_files:
         type: File[]

@@ -1,16 +1,42 @@
 cwlVersion: v1.0
 class: CommandLineTool
 label: "Copy number segmentation for exome varscan"
-baseCommand: ["genome-perl", "-I", "~cmiller/git/genome/lib/perl", "`which gmt`", "varscan", "copy-number-segments"]
+baseCommand: []
 inputs:
     regions_file:
         type: File
         inputBinding:
-          prefix: --regions-file
-    output:
-        type: string
+            position: 1
+    min_depth:
+        type: string?
         inputBinding:
-          prefix: --output
+            position: 2
+        default: 8
+    min_points:
+        type: string?
+        inputBinding:
+            position: 3
+        default: 100
+    undo_sd:
+        type: string?
+        inputBinding:
+            position: 4
+        default: 4
+    min_width:
+        type: string?
+        inputBinding:
+            position: 5
+        default: 2
+    plot_y_min:
+        type: string?
+        inputBinding:
+            position: 6
+        default: -5
+    plot_y_max:
+        type: string?
+        inputBinding:
+            position: 7
+        default: 5 
 outputs:
     segments:
         type: File
