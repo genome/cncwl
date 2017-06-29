@@ -1,0 +1,3 @@
+split_file:
+    class: File
+    path: "/gscmnt/gc3018/info/medseq/tmp/mneveau/intermediate_files/varscan.output.copynumber.called.cbs.X.infile" 
