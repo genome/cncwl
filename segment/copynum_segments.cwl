@@ -65,19 +65,3 @@ steps:
             min_depth: min_depth
         out:
             [split_files]
-    process_results:
-        scatter: [split_files]
-        run: process.cwl
-        in:
-            spilt_files: parse_regions/split_files
-            min_points: min_points
-            undo_sd:
-            min_width:
-            plot_y_min:
-            plot_y_max:
-        out:
-            [processed_files]
-    combine:
-        run:
-        in:
-        out: 
