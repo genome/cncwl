@@ -51,4 +51,14 @@ steps:
          out:
              [cn_called_recentered]
     segment:
+	run: copynum_segments.cwl
+        in:
+            regions_file: recenter/cn_called_recentered
+        out:
+            [segments_tsv]
     clean_and_merge:
+        run: clean_and_merge.cwl
+        in:
+            segments: segment/segments_tsv
+        out:
+            [segments_merged]

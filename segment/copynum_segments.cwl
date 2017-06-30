@@ -1,6 +1,10 @@
 cwlVersion: v1.0
 class: Workflow
 label: "Copy number segmentation for exome varscan"
+requirements:
+    -class: ScatterFeatureRequirement
+    -class: MultipleInputFeatureRequirement
+    -class: SubworkflowFeatureRequirement
 inputs:
     regions_file:
         type: File
@@ -40,19 +44,7 @@ outputs:
     segments:
         type: File
         outputBinding:
-          glob: varscan.output.copynumber.called.segments.tsv
-    index:
-        type: File
-        outputBinding:
-          glob: varscan.output.copynumber.called.index.html
-    infile:
-        type: File[]
-        outputBinding:
-          glob: "*.infile"
-    p_value:
-        type: File[]
-        outputBinding:
-          glob: "*.infile.segments.p-value"
+          glob: varscan.output.copynumber.called.recentered.segments.tsv
     sd:
         type: File[]
         outputBinding:
@@ -77,4 +69,3 @@ steps:
             plot_y_max: plot_y_max
         out:
             [segments_file]
-    cleanup:
