@@ -21,7 +21,7 @@ inputs:
         inputBinding:
           prefix: --R
         secondaryFiles: [.fai]
-    output:
+    output_name:
         type: string
         inputBinding: 
           prefix: -O
@@ -60,5 +60,6 @@ steps:
         run: clean_and_merge.cwl
         in:
             segments: segment/segments_tsv
+            output_name: output_name
         out:
             [segments_merged]
