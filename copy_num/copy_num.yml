@@ -1,0 +1,16 @@
+input_file:
+    class: File
+    path: /gscmnt/gc3018/info/medseq/tmp/mneveau/test_workflow/21.copynumber
+normal_bam:
+    class: File
+    path: /gscmnt/gc3018/info/medseq/tmp/mneveau/test.bam
+tumor_bam:
+    class: File
+    path: /gscmnt/gc3018/info/medseq/tmp/mneveau/test.bam
+reference:
+    class: File
+    path: /gscmnt/gc3018/info/medseq/tmp/mneveau/all_sequences.fa
+norm_tum_ratio:
+    class: File
+    path: /gscmnt/gc3018/info/medseq/tmp/mneveau/output.ratio
+varscan_params: "--min-coverage 20 --min-segment-size 25 --max-segment-size 100"

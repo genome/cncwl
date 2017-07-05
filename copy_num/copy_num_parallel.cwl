@@ -10,12 +10,12 @@ inputs:
         type: File
         inputBinding:
           prefix: -I_norm
-        secondaryFiles: [.flagstat]
+        secondaryFiles: [.flagstat, .bai]
     tumor_bam: 
         type: File
         inputBinding:
           prefix: -I_tum
-        secondaryFiles: [.flagstat]
+        secondaryFiles: [.flagstat, .bai]
     reference: 
         type: File
         inputBinding:
