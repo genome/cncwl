@@ -1,7 +1,7 @@
 cwlVersion: v1.0
 class: CommandLineTool
 label: "clean up the output of the workflow"
-baseCommand: ["bash", "helper.sh"]
+baseCommand: ["/bin/bash", "helper.sh"]
 requirements: 
     - class: InitialWorkDirRequirement
       listing:
@@ -10,15 +10,15 @@ requirements:
                #clean up intermediate files
                mkdir intermediate_files
                # add for split?
-               mv *.R *.copynumber *.log *.pvalue *.sd
+               mv *.R *.copynumber *.log *.pvalue *.sd intermediate_files
 
                #clean up tsv output
-               cut -f 3-7 varscan.output.copynumber.called.recentered.segments.tsv | sed 's/"//g' > varscan.output.copynumber.called.recentered.segments.tsv.clean
+               cut -f 3-7 $1 | sed 's/"//g' > varscan.output.copynumber.called.recentered.segments.tsv.clean
 
                #get rid of calls supported by only a few sites
                #change number to adjust sensitivity/specificity 
                #100 is specific, 10 is sensitive
-               perl -nae 'print $- if $F[3] >= 50 || $F[0] eq "chrom"' varscan.output.copynumber.called.recentered.segments.tsv.clean > tmp
+               perl -nae 'print $_ if $F[3] >= 50 || $F[0] eq "chrom"' varscan.output.copynumber.called.recentered.segments.tsv.clean > tmp
 inputs:
     segments:
         type: File
@@ -28,4 +28,4 @@ outputs:
     cleaned_file:
         type: File
         outputBinding:
-            glob: "*.clean"
+            glob: "tmp"
