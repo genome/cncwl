@@ -35,14 +35,12 @@ inputs:
         inputBinding: 
           prefix: --varscan_params
 outputs:
+    cn_files:
+        type: File[]
+        outputSource: copy_num/copy_num_file
     copy_number:
-        type: File[]
-        outputBinding:
-          glob: "*.copynumber"
-    log:
-        type: File[]
-        outputBinding:
-          glob: "*.log"
+        type: File
+        outputSource: combine/combined_out
 steps:
     get_norm_tum_ratio:
         run: get_norm_tum_ratio.cwl
@@ -69,10 +67,10 @@ steps:
             varscan_params: varscan_params
             input_file: split/cn_chromo_files
         out:
-            [copy_num_files]
+            [copy_num_file]
     combine:
         run: combine.cwl
         in:
-            copy_num_files: copy_num/copy_num_files
+            copy_num_files: [copy_num/copy_num_file]
         out:
             [combined_out]  

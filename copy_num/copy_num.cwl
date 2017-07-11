@@ -31,7 +31,7 @@ inputs:
         inputBinding:
             position: 6
 outputs:
-    cn_files:
-        type: File[]
+    copy_num_file:
+        type: File
         outputBinding:
             glob: "*.copynumber"

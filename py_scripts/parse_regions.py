@@ -2,7 +2,7 @@ import sys
 
 (script, regions_file, min_depth)= sys.argv
 
-out = "varscan.output.copynumber.called.recentered.split"
+out = "varscan.output.copynumber.called.recentered."
 t = "\t"
 with open(regions_file, 'r') as regions_f:
     #skip header line
@@ -20,7 +20,7 @@ with open(regions_file, 'r') as regions_f:
             chroms.append(chrom)
         #when sees next chromosome, write data from previous one to unique file
         if current_chrom != "" and chrom != current_chrom:
-            with open(out + "." + current_chrom, 'w') as out_f:
+            with open(out + "." + current_chrom + ".split", 'w') as out_f:
                 out_f.write(current_chrom_results)
             out_f.close()
             current_chrom_results = ""

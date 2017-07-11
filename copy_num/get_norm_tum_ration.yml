@@ -1,6 +1,15 @@
 normal_bam: 
     class: File
-    path: /gscmnt/gc3018/info/medseq/tmp/mneveau/test.bam
+    path: /gscmnt/gc12001/info/build_merged_alignments/merged-alignment-blade10-4-7.gsc.wustl.edu-apipe-builder-8390-123170111/123170111.bam 
+
+#/gscmnt/gc3018/info/medseq/tmp/mneveau/test.bam
+
+#/gscmnt/gc12001/info/build_merged_alignments/merged-alignment-blade10-4-7.gsc.#wustl.edu-apipe-builder-8390-123170111/123170111.bam
 tumor_bam: 
     class: File
-    path: /gscmnt/gc3018/info/medseq/tmp/mneveau/test.bam
+    path: /gscmnt/gc12001/info/build_merged_alignments/merged-alignment-blade12-3-6.gsc.wustl.edu-apipe-builder-29030-123189855/123189855.bam
+
+
+#/gscmnt/gc3018/info/medseq/tmp/mneveau/test.bam
+
+#/gscmnt/gc12001/info/build_merged_alignments/merged-alignment-blade12-3-6.gsc.#wustl.edu-apipe-builder-29030-123189855/123189855.bam

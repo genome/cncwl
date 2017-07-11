@@ -2,9 +2,9 @@ cwlVersion: v1.0
 class: Workflow
 label: "Copy number segmentation for exome varscan"
 requirements:
-    -class: ScatterFeatureRequirement
-    -class: MultipleInputFeatureRequirement
-    -class: SubworkflowFeatureRequirement
+    - class: ScatterFeatureRequirement
+    - class: MultipleInputFeatureRequirement
+    - class: SubworkflowFeatureRequirement
 inputs:
     regions_file:
         type: File
@@ -14,41 +14,41 @@ inputs:
         type: string?
         inputBinding:
             position: 2
-        default: 8
+        default: "8"
     min_points:
         type: string?
         inputBinding:
             position: 3
-        default: 100
+        default: "100"
     undo_sd:
         type: string?
         inputBinding:
             position: 4
-        default: 4
+        default: "4"
     min_width:
         type: string?
         inputBinding:
             position: 5
-        default: 2
+        default: "2"
     plot_y_min:
         type: string?
         inputBinding:
             position: 6
-        default: -5
+        default: "-5"
     plot_y_max:
         type: string?
         inputBinding:
             position: 7
-        default: 5 
+        default: "5" 
 outputs:
-    segments:
-        type: File
-        outputBinding:
-          glob: varscan.output.copynumber.called.recentered.segments.tsv
-    sd:
+    segments_tsv:
         type: File[]
-        outputBinding:
-          glob: "*.infile.segments.cd"
+        outputSource: process_results/segments_file
+        ##  glob: varscan.output.copynumber.called.recentered.segments.tsv
+    ##sd:
+    ##    type: File[]
+    ##    outputBinding:
+    ##      glob: "*.infile.segments.cd"
 steps:
     parse_regions:
         run: parse_regions.cwl
@@ -56,12 +56,12 @@ steps:
             regions_file: regions_file
             min_depth: min_depth
         out:
-            [split_files]
+            [split_regions_files]
     process_results:
-	scatter: [split_files]
-        run: process_reults.cwl
-	in:
-            split_file: parse_regions/split_files
+        scatter: [split_file]
+        run: process_results.cwl
+        in:
+            split_file: parse_regions/split_regions_files
             min_points: min_points
             undo_sd: undo_sd
             min_wdith: min_width

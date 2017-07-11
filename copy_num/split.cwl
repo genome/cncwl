@@ -9,7 +9,7 @@ inputs:
             position: 1
         secondaryFiles: [.fai]
 outputs:
-    chromo_files:
+    cn_chromo_files:
         type: File[]
         outputBinding:
             glob: "*.copynumber" 

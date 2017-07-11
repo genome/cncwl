@@ -1,7 +1,7 @@
 cwlVersion: v1.0
 class: CommandLineTool
 label: "Create and run python script"
-baseCommand: [python /gscuser/mneveau/cncwl/py_scripts/process_results.py]
+baseCommand: ['python', '/gscmnt/gc3018/cancer-genomics/medseq/tmp/mneveau/cncwl/py_scripts/process_results.py']
 inputs:
     split_file:
         type: File

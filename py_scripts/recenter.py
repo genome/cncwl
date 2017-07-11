@@ -48,4 +48,4 @@ print(cmd)
 execution = Popen(cmd, shell=True)
 execution.communicate()    
 if execution.returncode == 0:
-    print("all good here")
+    print("Successful")
