@@ -40,13 +40,13 @@ steps:
         out:
             [copy_number]
     copy_num_caller: 
-         run: copy_caller.cwl
+         run: copy_caller/copy_caller.cwl
          in:
              copy_num: copy_num_parallel/copy_number
          out:
              [cn_called_file]
     recenter:
-         run: recenter.cwl
+         run: recenter/recenter.cwl
          in:
              cn_called: copy_num_caller/cn_called_file
          out:
