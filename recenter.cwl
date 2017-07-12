@@ -8,7 +8,7 @@ inputs:
         inputBinding:
             position: 1
 outputs:
-    recentered:
+    cn_called_recentered:
         type: File
         outputBinding:
             glob: "*.recentered"

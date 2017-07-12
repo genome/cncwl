@@ -2,7 +2,7 @@ import sys
 
 (script, regions_file, min_depth)= sys.argv
 
-out = "varscan.output.copynumber.called.recentered."
+out = "varscan.output.copynumber.called.recentered"
 t = "\t"
 with open(regions_file, 'r') as regions_f:
     #skip header line

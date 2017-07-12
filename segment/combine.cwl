@@ -17,4 +17,4 @@ outputs:
     combined_out:
         type: File
         outputBinding:
-            glob: "*.copynumber"
+            glob: "*.segments.tsv"

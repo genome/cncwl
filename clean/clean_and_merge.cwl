@@ -6,13 +6,13 @@ inputs:
         type: File
         inputBinding:
             position: 1
-    out:
+    output_name:
         type: string?
         inputBinding:
             position: 2
         default: "varscan.segments.clean.merged" 
 outputs:
-    merged_f:
+    segments_merged:
         type: File
         outputSource: merge/merged_f
 steps:
@@ -25,6 +25,6 @@ steps:
         run: merge_seg.cwl
         in: 
             segments_f: clean/cleaned_file
-            output_f: out
+            output_f: output_name
         out: [merged_f]
  

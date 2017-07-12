@@ -6,6 +6,8 @@ requirements:
     - class: MultipleInputFeatureRequirement
     - class: SubworkflowFeatureRequirement
 inputs:
+
+##remove input binding
     regions_file:
         type: File
         inputBinding:
@@ -39,11 +41,14 @@ inputs:
         type: string?
         inputBinding:
             position: 7
-        default: "5" 
+        default: "5"
+    output_f:
+        type: string?
+        default: "varscan.copynumber.called.recentered.segments.tsv"
 outputs:
     segments_tsv:
-        type: File[]
-        outputSource: process_results/segments_file
+        type: File
+        outputSource: combine/combined_seg
         ##  glob: varscan.output.copynumber.called.recentered.segments.tsv
     ##sd:
     ##    type: File[]
@@ -64,8 +69,15 @@ steps:
             split_file: parse_regions/split_regions_files
             min_points: min_points
             undo_sd: undo_sd
-            min_wdith: min_width
+            min_width: min_width
             plot_y_min: plot_y_min
             plot_y_max: plot_y_max
         out:
             [segments_file]
+    combine:
+        run: seg_combine.cwl
+        in:
+            segment_file: process_results/segments_file
+            output_f: output_f
+        out:
+            [combined_seg]

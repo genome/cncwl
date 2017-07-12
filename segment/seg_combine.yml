@@ -1,0 +1,8 @@
+segment_file:
+    - {class: File, path: '/gscmnt/gc3018/cancer-genomics/medseq/tmp/mneveau/intermediate_files/varscan.output.copynumber.called.cbs.2.infile.segments.p_value'}
+    - {class: File, path: '/gscmnt/gc3018/cancer-genomics/medseq/tmp/mneveau/intermediate_files/varscan.output.copynumber.called.cbs.X.infile.segments.p_value'}
+    - {class: File, path: '/gscmnt/gc3018/cancer-genomics/medseq/tmp/mneveau/intermediate_files/varscan.output.copynumber.called.cbs.1.infile.segments.p_value'}
+    - {class: File, path: '/gscmnt/gc3018/cancer-genomics/medseq/tmp/mneveau/intermediate_files/varscan.output.copynumber.called.cbs.10.infile.segments.p_value'}
+
+
+    

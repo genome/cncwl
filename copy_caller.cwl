@@ -14,7 +14,7 @@ inputs:
             prefix: --output-file
         default: "varscan.output.copynumber.called"    
 outputs:
-    output_f:
+    cn_called_file:
         type: File
         outputBinding:
           glob: "varscan.output.copynumber.called"

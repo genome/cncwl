@@ -23,7 +23,7 @@ def get_flagstat(bam):
 #calculate avg read length for a bam
 def calc_avg_read_len(bam):
     reads_file = bam + ".reads"
-    cmd = "samtools view " + bam + " | head -10000 | cut -f 10 >" + reads_file
+    cmd = "/opt/samtools/bin/samtools view " + bam + " | head -10000 | cut -f 10 >" + reads_file
     print(cmd)
     execution = Popen(cmd, shell=True)
     execution.communicate()

@@ -22,13 +22,14 @@ inputs:
           prefix: --R
         secondaryFiles: [.fai]
     output_name:
-        type: string
-        inputBinding: 
-          prefix: -O
-output:
+        type: string?
+outputs:
     cn:
         type: File
-        outputSource: 
+        outputSource: clean_and_merge/segments_merged
+    segments:
+        type: File
+        outputSource: segment/segments_tsv 
 steps:
     copy_num_parallel:
         run: copy_num/copy_num_parallel.cwl
@@ -37,11 +38,11 @@ steps:
             tumor_bam: tumor_bam
             reference: reference
         out:
-            [copy_number_file]
+            [copy_number]
     copy_num_caller: 
          run: copy_caller.cwl
          in:
-             copy_num: copy_num_parallel/copynumber_file
+             copy_num: copy_num_parallel/copy_number
          out:
              [cn_called_file]
     recenter:
@@ -51,13 +52,13 @@ steps:
          out:
              [cn_called_recentered]
     segment:
-	run: copynum_segments.cwl
+        run: segment/copynum_segments.cwl
         in:
             regions_file: recenter/cn_called_recentered
         out:
             [segments_tsv]
     clean_and_merge:
-        run: clean_and_merge.cwl
+        run: clean/clean_and_merge.cwl
         in:
             segments: segment/segments_tsv
             output_name: output_name

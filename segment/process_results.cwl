@@ -36,5 +36,5 @@ outputs:
     segments_file:
         type: File
         outputBinding:
-             glob: "*.segments.tsv"
+             glob: "*.pvalue"
              

@@ -1,3 +1,4 @@
-copy_num_files:
+ind_files:
     - {class: File, path: '/gscmnt/gc3018/info/medseq/tmp/mneveau/test_workflow/1.copynumber'}
-    - {class: File, path: '/gscmnt/gc3018/info/medseq/tmp/mneveau/test_workflow/21.copynumber'}
+    - {class: File, path: '/gscmnt/gc3018/info/medseq/tmp/mneveau/test_workflow/2.copynumber'}
+    - {class: File, path: '/gscmnt/gc3018/info/medseq/tmp/mneveau/test_workflow/10.copynumber'}

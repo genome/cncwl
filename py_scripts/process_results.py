@@ -70,22 +70,22 @@ if line_count >= min_pts:
         print("Error: This chromosome's pvalue data was not created by R")
         sys.exit()
 
-    with open(out_chrom_p, 'r') as chrom_f:
-        #if first chromosome to be processed, add header and data, else just data
-        if os.path.isfile(seg_out) == False:
-            with open(seg_out, 'w') as seg_f:
-                for line in chrom_f:
-                    edited_line = parse_line(line)
-                    seg_f.write("\t".join(edited_line))
-            seg_f.close()
-        else:
-            with open(seg_out, 'a') as seg_f:
-                next(chrom_f)
-                for line in chrom_f:
-                    edited_line = parse_line(line)
-                    seg_f.write("\t".join(edited_line))
-            seg_f.close()
-    chrom_f.close()
+#    with open(out_chrom_p, 'r') as chrom_f:
+#        #if first chromosome to be processed, add header and data, else just data
+#        if os.path.isfile(seg_out) == False:
+ #           with open(seg_out, 'w') as seg_f:
+ #               for line in chrom_f:
+ #                   edited_line = parse_line(line)
+ #                   seg_f.write("\t".join(edited_line))
+ #           seg_f.close()
+ #       else:
+ #           with open(seg_out, 'a') as seg_f:
+ #               next(chrom_f)
+ #               for line in chrom_f:
+#                    edited_line = parse_line(line)
+#                    seg_f.write("\t".join(edited_line))
+#            seg_f.close()
+ #   chrom_f.close()
 
         
 
