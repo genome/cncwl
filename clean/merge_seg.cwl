@@ -3,7 +3,7 @@ class: CommandLineTool
 label: "merge cbs segments"
 baseCommand: ['/usr/bin/perl', '/gscuser/cmiller/oneoffs/mergeCbsSegsFuzzyLog2.pl']
 #stdout: "varscan.output.copynumber.called.recentered.segments.tsv.clean.merged"
-stdout: $(inputs.output_f)
+stdout: $(inputs.output_name)
 inputs:
     segments_f:
         type: File

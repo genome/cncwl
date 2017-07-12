@@ -25,6 +25,6 @@ steps:
         run: merge_seg.cwl
         in: 
             segments_f: clean/cleaned_file
-            output_f: output_name
+            output_name: output_name
         out: [merged_f]
  
