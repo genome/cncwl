@@ -35,6 +35,7 @@ with open(output, 'w') as out_f:
     out_f.write(str(avg_neutral_cn))
     out_f.close()
 
+#if average neutral copynum is less than zero, recenter down, otherwise, recenter up
 output = "varscan.output.copynumber.called" + ".recentered"
 cmd = ""
 if avg_neutral_cn < 0:

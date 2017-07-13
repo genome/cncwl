@@ -1,7 +1,7 @@
 cwlVersion: v1.0
 class: CommandLineTool
 label: "Recenter copy number data"
-baseCommand: ['python', '/gscmnt/gc3018/info/medseq/tmp/mneveau/recenter.py']
+baseCommand: ['python', '/opt/copy_num/recenter.py']
 inputs:
     cn_called:
         type: File

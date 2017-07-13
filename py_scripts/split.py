@@ -11,9 +11,11 @@ with open(ref_index, 'r') as index_f:
     chromos = []
     for line in index_f:
         fields = line.split("\t")
+        #skip GL and MT chromsomes
         if fields[0][0:2] != 'GL' and fields[0][0:2] != 'MT':
             chromos.append(fields[0])
     input_files = []
+    #create empty file for each relevant chromosome in the reference file
     for chromo in chromos:
         input_files.append(chromo + ".copynumber")
     print(chromos)

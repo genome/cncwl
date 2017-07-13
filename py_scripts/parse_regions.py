@@ -15,7 +15,6 @@ with open(regions_file, 'r') as regions_f:
         fields = line.split(t)
         chrom, chr_start, chr_stop, num_pos, norm, tum, log2 = fields[0], fields[1], fields[2], fields[3], fields[4], fields[5], fields[6]
         chr_start, chr_stop = int(chr_start), int(chr_stop)
-        ##might not need in the end
         if chrom not in chroms:
             chroms.append(chrom)
         #when sees next chromosome, write data from previous one to unique file

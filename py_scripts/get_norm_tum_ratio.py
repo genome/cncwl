@@ -17,7 +17,6 @@ def get_flagstat(bam):
         values.append(dup[0])
         mapped = lines[2].split(" ")
         values.append(mapped[0])
-        print(values)
     return(values)
 
 #calculate avg read length for a bam
@@ -27,7 +26,6 @@ def calc_avg_read_len(bam):
     print(cmd)
     execution = Popen(cmd, shell=True)
     execution.communicate()
-    print("Communication finished")
     len_sum, len_num = 0, 0
     with open(reads_file, 'r') as reads_f:
         for line in reads_f:
@@ -37,8 +35,6 @@ def calc_avg_read_len(bam):
             print("No lines in " + bam)
             sys.exit()
     avg_readlen = len_sum / (len_num * 1.0) 
-    print("Average read length: ")
-    print(avg_readlen)
     return(avg_readlen)
 
 (script, norm, tum) = sys.argv
@@ -66,6 +62,5 @@ with open(output, 'w+') as ratio_f:
  
         ratio_f.write(str(norm_tum_ratio))
     ratio_f.close()
-    print(norm_tum_ratio)
-    
-#/gscmnt/gc12001/info/build_merged_alignments/merged-alignment-blade12-3-6.gsc.wustl.edu-apipe-builder-29030-123189855/123189855.bam /gscmnt/gc12001/info/build_merged_alignments/merged-alignment-blade10-4-7.gsc.wustl.edu-apipe-builder-8390-123170111/123170111.bam
+print(norm_tum_ratio)
+

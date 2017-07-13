@@ -7,11 +7,6 @@ requirements:
       listing:
          - entryname: 'helper.sh'
            entry: |
-               #clean up intermediate files
-               mkdir intermediate_files
-               # add for split?
-               mv *.R *.copynumber *.log *.pvalue *.sd intermediate_files
-
                #clean up tsv output
                cut -f 3-7 $1 | sed 's/"//g' > varscan.output.copynumber.called.recentered.segments.tsv.clean
 

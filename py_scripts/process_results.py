@@ -16,7 +16,6 @@ with open(chr_file, 'r') as chr_f:
     #get chrom number from file_name
     dirs = chr_file.split("/")
     pieces = dirs[-1].split(".")
-    ##change back to 6
     chrom = pieces[5]
 
     out = "varscan.output.copynumber.called.recentered."
@@ -42,8 +41,6 @@ if line_count >= min_pts:
     with open(out + chrom + ".R", 'w') as R_script:
         R_script.write("library(DNAcopy)\n")
         R_script.write("regions <- read.table(\"" + chr_file + "\")\n")
-        ##R_script.write("png(\"" + out_chrom + ".jpg"  + "\", height=600, width=800)\n")
-            ##remember to remove:
         R_script.write("head(regions)\n")
         R_script.write('CNA.object <- CNA(regions$V' + str(col_count) + ', regions$V1, regions$V2, data.type="logratio", sampleid=c("Chromosome ' + chrom + '"))\nsmoothed.CNA.object <- smooth.CNA(CNA.object)\n')
         R_script.write('segment.smoothed.CNA.object <- segment(smoothed.CNA.object, undo.splits="sdundo", undo.SD=' + undo_sd + ', min.width=' + min_width + ', verbose=1)\np.segment.smoothed.CNA.object <- segments.p(segment.smoothed.CNA.object)\nx <- c(' + undo_sd + ', length(p.segment.smoothed.CNA.object$pval[p.segment.smoothed.CNA.object$num.mark>20]))\nwrite.table(x, file ="' + out_chrom_sd + '", append=TRUE)\n')
@@ -52,7 +49,6 @@ if line_count >= min_pts:
         while undo_sd > 0.5:
             undo_sd -= 0.5
             R_script.write('if(length(p.segment.smoothed.CNA.object$pval[p.segment.smoothed.CNA.object$num.mark>=20]) < 50)\n{\n\tx <- c(' + str(undo_sd) + ', length(p.segment.smoothed.CNA.object$pval[p.segment.smoothed.CNA.object$num.mark>=20]))\n\t\twrite.table(x, file="' + out_chrom_sd + '", append=TRUE)\n\t\tsegment.smoothed.CNA.object <- segment(smoothed.CNA.object, undo.splits="sdundo", undo.SD=' + str(undo_sd) + ', verbose=1) \n\t\t p.segment.smoothed.CNA.object <- segments.p(segment.smoothed.CNA.object)\n}\n')
-##really want chrom value here?
         R_script.write('detach(package:DNAcopy)\npar(mar=c(4,4,2,2))\n plot(segment.smoothed.CNA.object$data$maploc, segment.smoothed.CNA.object$data$Chromosome.' + chrom + ', pch=19, cex=0.25, cex.axis=1.25, cex.lab=1.5, col="cornflowerblue", ylim=c(' + plot_y_min + ',' + plot_y_max + '), main="Chromosome ' + chrom + '", xlab="Position", ylab="Copy Number Change (log2)")\nsegments(segment.smoothed.CNA.object$output$loc.start, segment.smoothed.CNA.object$output$seg.mean, segment.smoothed.CNA.object$output$loc.end, segment.smoothed.CNA.object$output$seg.mean, col="red", lwd=2)\n write.table(p.segment.smoothed.CNA.object, file="' + out_chrom_p + '")\n')
         R_script.write('dev.off()\n')
     R_script.close()
@@ -62,30 +58,13 @@ if line_count >= min_pts:
     execution.communicate()
     ##remove eventually
     if execution.returncode == 0:
-        print("it worked!")
+        print("R processing complete")
 
     seg_out = out + "segments.tsv"
     #make sure that data was created by R script
     if os.path.isfile(out_chrom_p) == False:
         print("Error: This chromosome's pvalue data was not created by R")
         sys.exit()
-
-#    with open(out_chrom_p, 'r') as chrom_f:
-#        #if first chromosome to be processed, add header and data, else just data
-#        if os.path.isfile(seg_out) == False:
- #           with open(seg_out, 'w') as seg_f:
- #               for line in chrom_f:
- #                   edited_line = parse_line(line)
- #                   seg_f.write("\t".join(edited_line))
- #           seg_f.close()
- #       else:
- #           with open(seg_out, 'a') as seg_f:
- #               next(chrom_f)
- #               for line in chrom_f:
-#                    edited_line = parse_line(line)
-#                    seg_f.write("\t".join(edited_line))
-#            seg_f.close()
- #   chrom_f.close()
 
         
 
