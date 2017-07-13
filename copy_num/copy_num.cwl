@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ['python', '/gscmnt/gc3018/info/medseq/tmp/mneveau/cncwl/py_scripts/copy_num.py']
+baseCommand: ['python', '/opt/copy_num/copy_num.py']
 label: "Determine copy number for a chromosome"
 inputs:
     input_file:

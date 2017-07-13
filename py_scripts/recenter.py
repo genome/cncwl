@@ -39,10 +39,10 @@ output = "varscan.output.copynumber.called" + ".recentered"
 cmd = ""
 if avg_neutral_cn < 0:
     recenter_baseline = 0 - avg_neutral_cn
-    cmd = "java -cp /gsc/scripts/lib/java/VarScan/VarScan.jar net.sf.varscan.VarScan copyCaller " + cn_called + " --output-file " + output + " --recenter-down " + str(recenter_baseline)
+    cmd = "java -cp /opt/varscan/VarScan.jar net.sf.varscan.VarScan copyCaller " + cn_called + " --output-file " + output + " --recenter-down " + str(recenter_baseline)
 else:
     recenter_baseline = avg_neutral_cn
-    cmd = "java -cp /gsc/scripts/lib/java/VarScan/VarScan.jar net.sf.varscan.VarScan copyCaller " + cn_called + " --output-file " + output + " --recenter-up " + str(recenter_baseline)
+    cmd = "java -cp /opt/varscan/VarScan.jar net.sf.varscan.VarScan copyCaller " + cn_called + " --output-file " + output + " --recenter-up " + str(recenter_baseline)
 
 print(cmd)
 execution = Popen(cmd, shell=True)

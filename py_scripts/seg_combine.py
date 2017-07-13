@@ -1,5 +1,4 @@
 import sys, os, re
-from subprocess import Popen
 seg_files = []
 outdir = sys.argv[1]
 output = sys.argv[-1]

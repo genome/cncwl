@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ['python', '/gscmnt/gc3018/cancer-genomics/medseq/tmp/mneveau/cncwl/py_scripts/seg_combine.py']
+baseCommand: ['python', '/opt/copy_num/seg_combine.py']
 #['python', '/opt/copynum/seg_combine.py']
 label: "Combine segments into one file"
 arguments: [$(runtime.outdir)]

@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ['python', '/gscmnt/gc3018/info/medseq/tmp/mneveau/cncwl/py_scripts/get_norm_tum_ratio.py']
+baseCommand: ['python', '/opt/copy_num/get_norm_tum_ratio.py']
 label: "Get normal:tumor ratio"                 
 inputs:
     normal_bam:

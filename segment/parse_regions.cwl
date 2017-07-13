@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ["python", "/gscmnt/gc3018/info/medseq/tmp/mneveau/cncwl/py_scripts/parse_regions.py"]
+baseCommand: ["python", "/opt/copy_num/parse_regions.py"]
 label: "Parse regions and create individual chromosome files to get results"
 inputs:
     regions_file:

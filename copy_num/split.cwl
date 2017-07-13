@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: ['python', '/gscmnt/gc3018/info/medseq/tmp/mneveau/split.py']
+baseCommand: ['python', '/opt/copy_num/split.py']
 label: "Create files for every significant chromosome in reference index"
 inputs:
     reference:

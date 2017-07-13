@@ -1,7 +1,7 @@
 cwlVersion: v1.0
 class: CommandLineTool
 label: "Copy caller for exome varscan"
-baseCommand: ["java", "-jar", "/gsc/scripts/lib/java/VarScan/VarScan.v2.3.1.jar","copyCaller"]
+baseCommand: ["java", "-jar", "/opt/varscan/VarScan.jar","copyCaller"]
 inputs:
     copy_num:
         type: File
