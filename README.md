@@ -1,2 +1,4 @@
 # cncwl
-CWL files and python scripts necessary to run the copy number analysis workflow for normal and tumor exomes
+CWL workflows to run the copy number analysis for normal and tumor exomes
+
+depends on Docker container mgibio/docker-copynum for scripts and tools
