@@ -35,9 +35,6 @@ inputs:
         inputBinding: 
           prefix: --varscan_params
 outputs:
-#    cn_files:
-#        type: File[]
-#        outputSource: copy_num/copy_num_file
     copy_number:
         type: File
         outputSource: combine/combined_out
@@ -71,6 +68,6 @@ steps:
     combine:
         run: combine.cwl
         in:
-            ind_files: [copy_num/copy_num_file]
+            ind_files: copy_num/copy_num_file
         out:
             [combined_out]  
