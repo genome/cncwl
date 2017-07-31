@@ -9,8 +9,10 @@ inputs:
         type: File
         inputBinding:
             position: 1
-    output_name:
+    final_output_name:
         type: string?
+        inputBinding:
+            position: 2
         default: "varscan.output.copynumber.called.recentered.segments.tsv.clean.merged"
 
 outputs:

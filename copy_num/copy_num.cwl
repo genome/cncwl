@@ -27,9 +27,10 @@ inputs:
         inputBinding:
             position: 5
     varscan_params:
-        type: string
+        type: string?
         inputBinding:
             position: 6
+        default: "--min-coverage 20 --min-segment-size 25 --max-segment-size 100"
 outputs:
     copy_num_file:
         type: File

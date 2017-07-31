@@ -23,4 +23,4 @@ reference:
 norm_tum_ratio:
     class: File
     path: /gscmnt/gc3018/info/medseq/tmp/mneveau/output.ratio
-varscan_params: "--min-coverage 20 --min-segment-size 25 --max-segment-size 100"
+#varscan_params: "--min-coverage 20 --min-segment-size 25 --max-segment-size 100"

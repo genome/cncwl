@@ -9,11 +9,6 @@ inputs:
         type: File[]
         inputBinding:
             position: 1
-    output_f:
-        type: string?
-        inputBinding:
-            position: 2
-        default: "varscan.output.copynumber.called.recentered.segments.tsv"
 outputs:
     combined_seg:
         type: File

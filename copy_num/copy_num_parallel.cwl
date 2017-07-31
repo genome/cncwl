@@ -8,32 +8,19 @@ requirements:
 inputs:
     normal_bam: 
         type: File
-        inputBinding:
-          prefix: -I_norm
         secondaryFiles: [.flagstat, .bai]
     tumor_bam: 
         type: File
-        inputBinding:
-          prefix: -I_tum
         secondaryFiles: [.flagstat, .bai]
     reference: 
         type: File
-        inputBinding:
-          prefix: --R
         secondaryFiles: [.fai]
-    chromosome:
-        type: string?
-        inputBinding: 
-          prefix: --chromo
     data_ratio:
         type: string?
-        inputBinding: 
-          prefix: --data_ratio
+        default: None
     varscan_params:
         type: string?
         default: "--min-coverage 20 --min-segment-size 25 --max-segment-size 100"
-        inputBinding: 
-          prefix: --varscan_params
 outputs:
     copy_number:
         type: File
@@ -57,12 +44,12 @@ steps:
         scatter: input_file
         run: copy_num.cwl
         in:
+            input_file: split/cn_chromo_files
             normal_bam: normal_bam
             tumor_bam: tumor_bam
             reference: reference
             norm_tum_ratio: get_norm_tum_ratio/norm_tum_ratio
             varscan_params: varscan_params
-            input_file: split/cn_chromo_files
         out:
             [copy_num_file]
     combine:
